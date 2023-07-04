@@ -58,13 +58,13 @@ export class GifsService {
   searchTag( tag: string ): void {
     if ( tag.length === 0 ) return;
     this.organizedHistory(tag);
-
+    
+    // ¡¡USAR!! opcion3 http.get:
     const params = new HttpParams()
       .set( 'api_key', this.apikey )
       .set( 'limit', '10' )
       .set( 'q', tag )
 
-    // ¡¡USAR!! opcion3 http.get:
     this.http.get<SearchResponse>(`${ this.serviceUrl }/search`, { params } )
       .subscribe( resp => {
 
